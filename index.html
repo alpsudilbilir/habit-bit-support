@@ -18,12 +18,13 @@
             background: #1a1a1a;
         }
         
-        /* Header */
+        /* Header - Dark */
         header {
-            background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #3b82f6 100%);
+            background: #0a0a0a;
             color: white;
             padding: 80px 20px;
             text-align: center;
+            border-bottom: 1px solid #2a2a2a;
         }
         
         .header-content {
@@ -36,19 +37,23 @@
             font-weight: 700;
             margin-bottom: 20px;
             letter-spacing: -1px;
+            background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .tagline {
             font-size: 1.8em;
             margin-bottom: 40px;
             font-weight: 300;
-            opacity: 0.95;
+            color: #cccccc;
         }
         
         .description {
             font-size: 1.2em;
             margin-bottom: 40px;
-            opacity: 0.9;
+            color: #aaaaaa;
             line-height: 1.8;
         }
         
@@ -62,19 +67,19 @@
         .app-store-btn {
             display: inline-block;
             padding: 15px 30px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            background: #2a2a2a;
             color: white;
             text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
             font-size: 1.1em;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid #3a3a3a;
             transition: all 0.3s;
         }
         
         .app-store-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: #3a3a3a;
+            border-color: #06b6d4;
             transform: translateY(-2px);
         }
         
@@ -128,10 +133,7 @@
             text-align: center;
             font-size: 2.5em;
             margin-bottom: 60px;
-            background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #6366f1;
             font-weight: 700;
         }
         
@@ -187,7 +189,8 @@
             text-align: center;
             font-size: 2.5em;
             margin-bottom: 40px;
-            color: #06b6d4;
+            color: #3b82f6;
+            font-weight: 700;
         }
         
         .privacy-section {
@@ -301,7 +304,7 @@
     
     <!-- Screenshots -->
     <section class="screenshots">
-        <h2 class="section-title">See HabitBit in Action</h2>
+        <h2 class="section-title" style="color: #06b6d4;">See HabitBit in Action</h2>
         <div class="screenshots-container">
             <div class="screenshot-placeholder">
                 <!-- Screenshot 1: Main Dashboard -->
@@ -329,7 +332,7 @@
     <!-- Features -->
     <section class="features">
         <div class="features-container">
-            <h2 class="section-title">Everything You Need to Build Better Habits</h2>
+            <h2 class="section-title" style="color: #6366f1;">Everything You Need to Build Better Habits</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
