@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HabitBit - Support</title>
+    <title>HabitBit - Build Better Habits Daily</title>
     <style>
         * {
             margin: 0;
@@ -15,212 +15,427 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(99, 102, 241, 0.15) 50%, rgba(59, 130, 246, 0.15) 100%);
-            min-height: 100vh;
-            padding: 20px;
+            background: #ffffff;
         }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
+        /* Header */
         header {
             background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #3b82f6 100%);
             color: white;
-            padding: 50px 30px;
+            padding: 80px 20px;
             text-align: center;
         }
         
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        header p {
-            font-size: 1.2em;
-            opacity: 0.95;
+        .logo {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .tagline {
+            font-size: 1.8em;
+            margin-bottom: 40px;
             font-weight: 300;
+            opacity: 0.95;
         }
         
-        .content {
-            padding: 50px 40px;
-        }
-        
-        section {
-            margin-bottom: 50px;
-        }
-        
-        section h2 {
-            background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 2em;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-        
-        section h3 {
-            color: #06b6d4;
-            font-size: 1.4em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        section p {
-            margin-bottom: 18px;
-            color: #555;
+        .description {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.9;
             line-height: 1.8;
-            font-size: 1.05em;
         }
         
-        section ul {
-            margin-left: 25px;
-            margin-bottom: 18px;
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
-        section li {
-            margin-bottom: 12px;
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.05em;
-        }
-        
-        .email-link {
-            color: #06b6d4;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-        
-        .email-link:hover {
-            color: #6366f1;
-            text-decoration: underline;
-        }
-        
-        .app-store-link {
+        .app-store-btn {
             display: inline-block;
-            margin-top: 25px;
             padding: 15px 30px;
-            background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #3b82f6 100%);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
             color: white;
             text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
             font-size: 1.1em;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
         }
         
-        .app-store-link:hover {
+        .app-store-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
         }
         
-        footer {
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(99, 102, 241, 0.05) 50%, rgba(59, 130, 246, 0.05) 100%);
-            padding: 35px;
+        /* Screenshots Section */
+        .screenshots {
+            padding: 80px 20px;
+            background: #f8f9fa;
             text-align: center;
+        }
+        
+        .screenshots-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #3b82f6 100%);
+            border-radius: 20px;
+            padding: 40px;
+            color: white;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .screenshot-placeholder img {
+            max-width: 100%;
+            border-radius: 15px;
+            display: none; /* Placeholder göster, sonra img eklenince gösterilecek */
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #06b6d4;
+            font-weight: 600;
+        }
+        
+        .feature-description {
             color: #666;
-            border-top: 2px solid rgba(6, 182, 212, 0.1);
+            line-height: 1.8;
         }
         
-        footer p {
-            margin-bottom: 8px;
+        /* Privacy Section */
+        .privacy {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(99, 102, 241, 0.05) 50%, rgba(59, 130, 246, 0.05) 100%);
         }
         
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2.2em;
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .privacy h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #06b6d4;
+        }
+        
+        .privacy-section {
+            margin-bottom: 40px;
+        }
+        
+        .privacy-section h3 {
+            color: #6366f1;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .privacy-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5em;
             }
             
-            .content {
-                padding: 35px 25px;
+            .tagline {
+                font-size: 1.4em;
             }
             
-            section h2 {
-                font-size: 1.6em;
+            .screenshots-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>HabitBit</h1>
-            <p>Support & Information</p>
-        </header>
-        
-        <div class="content">
-            <section id="support">
-                <h2>📧 Support</h2>
-                <p>Need help? Have a question or found a bug?</p>
-                <p>Contact us at: <a href="mailto:alpsudilbilir@gmail.com" class="email-link">alpsudilbilir@gmail.com</a></p>
-                <p>We'll get back to you as soon as possible!</p>
-            </section>
-            
-            <section id="privacy">
-                <h2>🔒 Privacy Policy</h2>
-                
-                <h3>1. Information Collection</h3>
-                <p>HabitBit does not collect, store, or share any personal information. All data, including your habits and completion history, is stored locally on your device.</p>
-                
-                <h3>2. Data Usage</h3>
-                <p>We do not have access to your data. It is strictly used for the app's functionality on your device.</p>
-                
-                <h3>3. Data Storage</h3>
-                <p>HabitBit does NOT use iCloud synchronization or any external servers. All your data remains on your device. If you delete the app, your data will be deleted.</p>
-                
-                <h3>4. Contact</h3>
-                <p>For questions about privacy, please contact us at <a href="mailto:alpsudilbilir@gmail.com" class="email-link">alpsudilbilir@gmail.com</a>.</p>
-            </section>
-            
-            <section id="terms">
-                <h2>📜 Terms of Use</h2>
-                
-                <h3>1. Acceptance of Terms</h3>
-                <p>By downloading and using HabitBit, you agree to these terms.</p>
-                
-                <h3>2. Usage</h3>
-                <p>HabitBit is a tool for personal habit tracking. We are not responsible for any outcomes resulting from the use of this app.</p>
-                
-                <h3>3. Data Privacy</h3>
-                <p>You acknowledge that HabitBit stores data locally on your device and does not backup data to the cloud. You are responsible for your own data.</p>
-                
-                <h3>4. Intellectual Property</h3>
-                <p>All content and design within the app are the property of the developer, except for user-generated content.</p>
-                
-                <h3>5. Termination</h3>
-                <p>We reserve the right to terminate or suspend access to the app immediately, without prior notice, for any reason.</p>
-                
-                <h3>6. Changes to Terms</h3>
-                <p>We may update these terms from time to time. Continued use of the app implies acceptance of the new terms.</p>
-            </section>
-            
-            <section id="app-store">
-                <h2>📱 Download</h2>
-                <p>Get HabitBit on the App Store:</p>
-                <a href="https://apps.apple.com/app/habitbit/id[YOUR_APP_ID]" class="app-store-link" target="_blank">
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">HabitBit</div>
+            <div class="tagline">Change Your Life One Habit at a Time</div>
+            <div class="description">
+                Track your habits with ease and view your daily progress in a clear, intuitive way. Stay motivated and consistent as you work towards your goals.
+            </div>
+            <div class="download-buttons">
+                <a href="https://apps.apple.com/app/habitbit/id[YOUR_APP_ID]" class="app-store-btn" target="_blank">
                     Download on the App Store
                 </a>
-                <p style="margin-top: 15px; font-size: 0.9em; color: #999;">
-                    <em>Note: Replace [YOUR_APP_ID] with your actual App Store ID after your app is published.</em>
-                </p>
-            </section>
+            </div>
         </div>
-        
-        <footer>
-            <p>&copy; 2025 HabitBit. All rights reserved.</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Your data, your privacy, your control.</p>
-        </footer>
-    </div>
+    </header>
+    
+    <!-- Screenshots -->
+    <section class="screenshots">
+        <h2 class="section-title">See HabitBit in Action</h2>
+        <div class="screenshots-container">
+            <div class="screenshot-placeholder">
+                <!-- Screenshot 1: Main Dashboard -->
+                <div>Screenshot 1: Main Dashboard<br><small>(Add your screenshot here)</small></div>
+                <!-- <img src="screenshot1.png" alt="HabitBit Dashboard"> -->
+            </div>
+            <div class="screenshot-placeholder">
+                <!-- Screenshot 2: Widgets -->
+                <div>Screenshot 2: Widgets<br><small>(Add your screenshot here)</small></div>
+                <!-- <img src="screenshot2.png" alt="HabitBit Widgets"> -->
+            </div>
+            <div class="screenshot-placeholder">
+                <!-- Screenshot 3: Statistics -->
+                <div>Screenshot 3: Statistics<br><small>(Add your screenshot here)</small></div>
+                <!-- <img src="screenshot3.png" alt="HabitBit Statistics"> -->
+            </div>
+            <div class="screenshot-placeholder">
+                <!-- Screenshot 4: Yearly View -->
+                <div>Screenshot 4: Yearly View<br><small>(Add your screenshot here)</small></div>
+                <!-- <img src="screenshot4.png" alt="HabitBit Yearly View"> -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features -->
+    <section class="features">
+        <div class="features-container">
+            <h2 class="section-title">Everything You Need to Build Better Habits</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Visual Grid Tracking</div>
+                    <div class="feature-description">
+                        Monitor your progress with intuitive tile-based grid charts. Track habits across weekly, monthly, and yearly views. Each completed day is represented by a vibrant colored square.
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-title">Customization</div>
+                    <div class="feature-description">
+                        Personalize your habits with custom icons, colors, and names. Choose from hundreds of SF Symbols or use emojis to make each habit uniquely yours.
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-title">Home Screen Widgets</div>
+                    <div class="feature-description">
+                        Keep your habits front and center with interactive widgets. Toggle completions directly from your home screen without opening the app.
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <div class="feature-title">Calendar View</div>
+                    <div class="feature-description">
+                        The calendar provides a fast and easy way to manage past completions. Simply tap a day to remove or add a completion.
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <div class="feature-title">Detailed Insights</div>
+                    <div class="feature-description">
+                        Dive deep into each habit's performance with detailed statistics. View completion rates, streaks, and patterns to understand your progress better.
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <div class="feature-title">Smart Reminders</div>
+                    <div class="feature-description">
+                        Set custom reminders to never miss a habit. Choose specific days of the week and times that work best for your schedule.
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <div class="feature-title">Archive & Restore</div>
+                    <div class="feature-description">
+                        Life changes, and so do your habits. Archive habits you want to pause and restore them whenever you're ready.
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-title">Drag & Drop</div>
+                    <div class="feature-description">
+                        Easily reorder your habits by dragging and dropping. Organize your dashboard to match your priorities.
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Privacy First</div>
+                    <div class="feature-description">
+                        Your data belongs to you. HabitBit stores everything locally on your device. No sign-in required. No cloud sync. No servers.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Privacy & Terms -->
+    <section class="privacy">
+        <div class="privacy-content">
+            <h2>Privacy & Terms</h2>
+            
+            <div class="privacy-section">
+                <h3>🔒 Privacy Policy</h3>
+                <p><strong>1. Information Collection</strong></p>
+                <p>HabitBit does not collect, store, or share any personal information. All data, including your habits and completion history, is stored locally on your device.</p>
+                
+                <p><strong>2. Data Usage</strong></p>
+                <p>We do not have access to your data. It is strictly used for the app's functionality on your device.</p>
+                
+                <p><strong>3. Data Storage</strong></p>
+                <p>HabitBit does NOT use iCloud synchronization or any external servers. All your data remains on your device. If you delete the app, your data will be deleted.</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h3>📜 Terms of Use</h3>
+                <p><strong>1. Acceptance of Terms</strong></p>
+                <p>By downloading and using HabitBit, you agree to these terms.</p>
+                
+                <p><strong>2. Usage</strong></p>
+                <p>HabitBit is a tool for personal habit tracking. We are not responsible for any outcomes resulting from the use of this app.</p>
+                
+                <p><strong>3. Data Privacy</strong></p>
+                <p>You acknowledge that HabitBit stores data locally on your device and does not backup data to the cloud. You are responsible for your own data.</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h3>📧 Support</h3>
+                <p>Need help? Have a question or found a bug?</p>
+                <p>Contact us at: <a href="mailto:alpsudilbilir@gmail.com" style="color: #06b6d4; text-decoration: none; font-weight: 600;">alpsudilbilir@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="mailto:alpsudilbilir@gmail.com">Contact</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 HabitBit. All rights reserved.</p>
+                <p style="margin-top: 10px; opacity: 0.6;">Made with ❤️ for building better habits</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
