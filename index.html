@@ -63,10 +63,24 @@
             text-align: left;
         }
         
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
         .logo {
             font-size: 4em;
             letter-spacing: -2px;
-            margin-bottom: 20px;
             display: inline-block;
         }
         
@@ -325,6 +339,8 @@
 
         @media (max-width: 768px) {
             .logo { font-size: 3em; }
+            .app-icon { width: 60px; height: 60px; border-radius: 15px; }
+            .logo-container { gap: 15px; }
             .tagline { font-size: 1.5em; }
             .header-content, .section-header { text-align: center; }
             .tagline, .description { margin-left: auto; margin-right: auto; }
@@ -340,7 +356,10 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-            <div class="logo liquid-text">HabitBit</div>
+            <div class="logo-container">
+                <img src="icon.png" alt="HabitBit Icon" class="app-icon">
+                <div class="logo liquid-text">HabitBit</div>
+            </div>
             <div class="tagline">Change Your Life One Habit at a Time</div>
             <div class="description">
                 Track your habits with ease and view your daily progress in a clear, intuitive way. Stay motivated and consistent as you work towards your goals.
