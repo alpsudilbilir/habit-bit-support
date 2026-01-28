@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HabitBit - Build Better Habits Daily</title>
+    <title>HabitBit - Simple Habit Tracking</title>
     <link rel="icon" type="image/png" href="habitbit.png">
     <link rel="apple-touch-icon" href="habitbit.png">
     <style>
@@ -44,6 +44,12 @@
             overflow: hidden;
         }
         
+        @media (min-width: 769px) {
+            header {
+                padding-left: 40px;
+            }
+        }
+        
         /* Abstract Background Blobs */
         .blob {
             position: absolute;
@@ -62,14 +68,18 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            text-align: left;
+            text-align: center;
         }
         
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 0px;
             margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
         }
         
         .app-icon {
@@ -81,9 +91,10 @@
         }
         
         .logo {
-            font-size: 4em;
+            font-size: 3.5em;
             letter-spacing: -2px;
             display: inline-block;
+            margin-left: -11px;
         }
         
         .tagline {
@@ -93,14 +104,21 @@
             color: #ffffff;
             opacity: 0.9;
             max-width: 600px;
+            line-height: 1.4;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
         }
         
         .description {
             font-size: 1.2em;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             color: #cccccc;
-            line-height: 1.8;
+            line-height: 1.6;
             max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
         }
         
         /* App Store Button */
@@ -141,7 +159,7 @@
 
         /* Screenshots Section */
         .screenshots {
-            padding: 100px 20px;
+            padding: 40px 20px 100px;
             background: #0f0f0f;
             position: relative;
             z-index: 1;
@@ -151,26 +169,77 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 30px;
+            align-items: start;
+        }
+        
+        @media (max-width: 1400px) {
+            .screenshots-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .screenshots-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .screenshots-container {
+                grid-template-columns: 1fr;
+            }
         }
         
         .screenshot-placeholder {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
+            background: #000;
+            border: 3px solid #1a1a1a;
+            border-radius: 20px;
             aspect-ratio: 9/19.5;
+            width: 100%;
+            max-width: 140px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: rgba(255,255,255,0.3);
             font-size: 1.2em;
             transition: transform 0.3s ease;
+            overflow: hidden;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding: 0;
+        }
+        
+        .screenshot-placeholder::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 3px;
+            z-index: 2;
         }
         
         .screenshot-placeholder:hover {
             transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.15);
+        }
+        
+        .screenshot-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 17px;
+            transition: transform 0.3s ease;
+        }
+        
+        .screenshot-placeholder:hover .screenshot-img {
+            transform: scale(1.02);
         }
         
         /* Features Section */
@@ -264,6 +333,8 @@
             cursor: pointer;
             font-size: 0.9em;
             transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .legal-btn:hover {
@@ -340,9 +411,9 @@
         .feature-icon svg { fill: currentColor; }
 
         @media (max-width: 768px) {
-            .logo { font-size: 3em; }
+            .logo { font-size: 2.6em; margin-left: -8px; }
             .app-icon { width: 60px; height: 60px; border-radius: 15px; }
-            .logo-container { gap: 15px; }
+            .logo-container { gap: 0px; margin-left: -15px; }
             .tagline { font-size: 1.5em; }
             .header-content, .section-header { text-align: center; }
             .tagline, .description { margin-left: auto; margin-right: auto; }
@@ -360,13 +431,38 @@
         <div class="header-content">
             <div class="logo-container">
                 <img src="habitbit.png" alt="HabitBit Icon" class="app-icon">
-                <div class="logo liquid-text">HabitBit</div>
+                <div class="logo liquid-text">abitBit</div>
             </div>
-            <div class="tagline">Change Your Life One Habit at a Time</div>
+            <div class="tagline">Simple, Lightweight Habit Tracker</div>
             <div class="description">
-                Track your habits with ease and view your daily progress in a clear, intuitive way. Stay motivated and consistent as you work towards your goals.
+                Transform your daily routines into lasting habits. Every checkmark is a step forward, every streak a victory. Build the life you want, one habit at a time.
             </div>
-            
+        </div>
+    </header>
+    
+    <!-- Screenshots -->
+    <section class="screenshots">
+        <div class="screenshots-container">
+            <div class="screenshot-placeholder">
+                <img src="main.png" alt="Main Dashboard" class="screenshot-img">
+            </div>
+            <div class="screenshot-placeholder">
+                <img src="yearly.png" alt="Yearly View" class="screenshot-img">
+            </div>
+            <div class="screenshot-placeholder">
+                <img src="weekly.png" alt="Weekly View" class="screenshot-img">
+            </div>
+            <div class="screenshot-placeholder">
+                <img src="detail.png" alt="Detail Screen" class="screenshot-img">
+            </div>
+            <div class="screenshot-placeholder">
+                <img src="stats.png" alt="Statistics" class="screenshot-img">
+            </div>
+            <div class="screenshot-placeholder">
+                <img src="widgets.png" alt="Widgets" class="screenshot-img">
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px;">
             <a href="https://apps.apple.com/app/habitbit/id[YOUR_APP_ID]" class="app-store-btn" target="_blank">
                 <svg class="apple-icon" viewBox="0 0 384 512">
                     <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/>
@@ -376,16 +472,6 @@
                     <span class="btn-text-large">App Store</span>
                 </div>
             </a>
-        </div>
-    </header>
-    
-    <!-- Screenshots -->
-    <section class="screenshots">
-        <div class="screenshots-container">
-            <div class="screenshot-placeholder">Main Dashboard</div>
-            <div class="screenshot-placeholder">Widgets</div>
-            <div class="screenshot-placeholder">Statistics</div>
-            <div class="screenshot-placeholder">Yearly View</div>
         </div>
     </section>
     
@@ -474,14 +560,14 @@
                     </div>
                 </div>
                 
-                <!-- Drag & Drop -->
+                <!-- Import & Export -->
                 <div class="feature-card">
                     <div class="feature-icon icon-color-8">
-                        <svg viewBox="0 0 24 24"><path d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
                     </div>
-                    <div class="feature-title">Drag & Drop</div>
+                    <div class="feature-title">Import & Export Data</div>
                     <div class="feature-description">
-                        Easily reorder your habits by dragging and dropping. Organize your dashboard.
+                        Backup your habits and data by exporting to a file. Import your data anytime to restore your progress.
                     </div>
                 </div>
             </div>
@@ -492,8 +578,8 @@
     <footer>
         <div class="footer-content">
             <div class="legal-buttons">
-                <button class="legal-btn" onclick="openModal('privacy-modal')">Privacy Policy</button>
-                <button class="legal-btn" onclick="openModal('terms-modal')">Terms of Use</button>
+                <a href="privacy.html" class="legal-btn">Privacy Policy</a>
+                <a href="tos.html" class="legal-btn">Terms of Use</a>
                 <button class="legal-btn" onclick="window.location.href='mailto:alpsudilbilir@gmail.com'">Contact Support</button>
             </div>
             
