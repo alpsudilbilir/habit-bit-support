@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ko" data-screen-base="../assets/screens/ko/">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>document.documentElement.classList.add('js');</script>
+    <title>HabitBit - 심플한 시각적 습관 트래커</title>
+    <meta name="description" content="HabitBit은 iPhone용 심플한 습관 트래커이자 루틴 관리 앱입니다. 그리드, 알림, 위젯, 연속 기록, 집중 세션으로 매일의 습관을 만들어 보세요.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0c0d0e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-itunes-app" content="app-id=6755720599">
+    <link rel="canonical" href="https://www.habitbit.app/ko/">
+    <link rel="alternate" hreflang="en" href="https://www.habitbit.app/">
+    <link rel="alternate" hreflang="tr" href="https://www.habitbit.app/tr/">
+    <link rel="alternate" hreflang="de" href="https://www.habitbit.app/de/">
+    <link rel="alternate" hreflang="fr" href="https://www.habitbit.app/fr/">
+    <link rel="alternate" hreflang="es" href="https://www.habitbit.app/es/">
+    <link rel="alternate" hreflang="it" href="https://www.habitbit.app/it/">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.habitbit.app/pt-br/">
+    <link rel="alternate" hreflang="ja" href="https://www.habitbit.app/ja/">
+    <link rel="alternate" hreflang="ko" href="https://www.habitbit.app/ko/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://www.habitbit.app/zh-hans/">
+    <link rel="alternate" hreflang="x-default" href="https://www.habitbit.app/">
+    <link rel="icon" type="image/png" href="../habitbit.png">
+    <link rel="apple-touch-icon" href="../habitbit.png">
+    <link rel="preload" href="../assets/screens/ko/02-habit-overview.png" as="image">
+    <link rel="stylesheet" href="../styles.css?v=9">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HabitBit">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:title" content="HabitBit - 심플한 시각적 습관 트래커">
+    <meta property="og:description" content="주간, 월간, 연간 진행 그리드를 제공하는 심플한 데일리 습관 트래커와 루틴 플래너.">
+    <meta property="og:url" content="https://www.habitbit.app/ko/">
+    <meta property="og:image" content="https://www.habitbit.app/assets/screens/ko/02-habit-overview.png">
+    <meta property="og:image:alt" content="iPhone에서 시각적 습관 관리를 보여주는 HabitBit 앱">
+    <meta name="twitter:card" content="summary_large_image">
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "HabitBit",
+      "url": "https://www.habitbit.app/ko/",
+      "downloadUrl": "https://apps.apple.com/app/id6755720599",
+      "image": "https://www.habitbit.app/habitbit.png",
+      "operatingSystem": "iOS",
+      "applicationCategory": "ProductivityApplication",
+      "description": "HabitBit은 매일 체크, 주간·월간·연간 진행 그리드, 알림, 위젯, 연속 기록 통계와 집중 타이머를 제공하는 iPhone용 시각적 습관 트래커입니다.",
+      "featureList": [
+        "집중된 주간 보드는 오늘을 가까이 두면서도 만들어 가는 리듬을 놓치지 않게 합니다.",
+        "현재 및 최고 연속 기록",
+        "홈 화면과 잠금 화면 위젯이 다음 행동을 항상 보이게 합니다. 습관에 맞는 요일과 시간에 알림도 설정할 수 있습니다.",
+        "달성 추세와 분포",
+        "습관이 실제로 일어날 시간을 만드세요.",
+        "HabitBit은 계정을 요구하지 않습니다. 습관 이름, 메모와 완료 기록은 기기에 로컬로 저장됩니다."
+      ],
+      "screenshot": "https://www.habitbit.app/assets/screens/ko/02-habit-overview.png",
+      "softwareRequirements": "iOS / iPhone",
+      "inLanguage": "ko",
+      "isAccessibleForFree": true,
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "ratingCount": "5"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "HabitBit은 무료로 다운로드하고 사용할 수 있습니다. 선택 사항인 Pro 구매로 무제한 습관, 고급 통계, Pro 위젯, 파일 내보내기와 가져오기, 추가 테마 색상을 이용할 수 있습니다. 플랜과 현지 가격은 앱 안에 표시됩니다."
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Alpsu Dilbilir"
+      }
+    }
+    </script>
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "HabitBit은 어떤 앱인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HabitBit은 iPhone용 심플한 시각적 습관 트래커이자 루틴 플래너입니다. 매일의 체크가 주간·월간·연간 그리드로 쌓여 루틴, 연속 기록과 장기 진행 상황을 쉽게 보여줍니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "계정이 필요한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요. 계정을 만들지 않고 바로 습관 관리를 시작할 수 있습니다. 습관 기록은 기기에 로컬로 저장됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "무엇을 기록할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "운동, 독서, 물 마시기, 공부, 명상 또는 반복하는 어떤 행동이든 데일리 습관, 연속 기록, 목표와 루틴으로 관리할 수 있습니다. 습관마다 아이콘, 색상, 일정과 알림을 따로 설정할 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "위젯, 알림, 집중 타이머가 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. HabitBit은 홈 화면과 잠금 화면 위젯, 예약 알림, 포모도로 방식의 집중 타이머를 제공합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "HabitBit은 무료인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HabitBit은 무료로 다운로드하고 사용할 수 있습니다. 선택 사항인 Pro 구매로 무제한 습관, 고급 통계, Pro 위젯, 파일 내보내기와 가져오기, 추가 테마 색상을 이용할 수 있습니다. 플랜과 현지 가격은 앱 안에 표시됩니다."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">본문으로 이동</a>
+    <div class="page-light" aria-hidden="true"></div>
+    <nav class="site-nav" aria-label="기능">
+        <a class="brand" href="#top" aria-label="HabitBit home">
+            <img src="../habitbit.png" alt="" width="42" height="42">
+            <span>HabitBit</span>
+        </a>
+        <div class="nav-links">
+            <a href="#experience">기능</a>
+            <a href="#how-it-works">사용 방법</a>
+            <a href="#questions">FAQ</a>
+        </div>
+        <details class="language-menu">
+            <summary aria-label="언어 선택">KO</summary>
+            <div class="language-options">
+                <a lang="en" href="https://www.habitbit.app/">English</a><a lang="tr" href="https://www.habitbit.app/tr/">Türkçe</a><a lang="de" href="https://www.habitbit.app/de/">Deutsch</a><a lang="fr" href="https://www.habitbit.app/fr/">Français</a><a lang="es" href="https://www.habitbit.app/es/">Español</a><a lang="it" href="https://www.habitbit.app/it/">Italiano</a><a lang="pt-BR" href="https://www.habitbit.app/pt-br/">Português</a><a lang="ja" href="https://www.habitbit.app/ja/">日本語</a><a lang="ko" href="https://www.habitbit.app/ko/">한국어</a><a lang="zh-Hans" href="https://www.habitbit.app/zh-hans/">简体中文</a>
+            </div>
+        </details>
+        <a class="nav-download" href="https://apps.apple.com/app/id6755720599" target="_blank" rel="noopener noreferrer">앱 받기</a>
+    </nav>
+
+    <main id="main">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="hero-grid" id="hero-grid" aria-hidden="true"></div>
+            <div class="hero-shade" aria-hidden="true"></div>
+            <div class="hero-copy reveal">
+                <p class="eyebrow">iPhone을 위한 HabitBit</p>
+                <h1 id="hero-title">심플하고 한눈에 보이는 iPhone 습관 트래커.</h1>
+                <p class="hero-lede">복잡함 없이 매일의 습관을 만드세요. 한 번의 탭으로 체크하고, 일주일과 한 달, 한 해 동안 쌓인 루틴, 연속 기록, 진행 상황을 확인할 수 있습니다.</p>
+                <a class="app-store-button" href="https://apps.apple.com/app/id6755720599" target="_blank" rel="noopener noreferrer" aria-label="앱 받기: HabitBit">
+                    <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.1 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/></svg>
+                    <span><small>App Store에서</small><strong>App Store</strong></span>
+                </a>
+                <p class="hero-note">계정이 필요 없습니다. 습관 기록은 기기에 보관됩니다.</p>
+            </div>
+            <a class="scroll-cue" href="#proof" aria-label="한 해 보기"><span>한 해 보기</span><span aria-hidden="true">↓</span></a>
+        </section>
+
+        <section class="proof" id="proof" aria-labelledby="proof-title">
+            <div class="section-shell proof-copy reveal">
+                <p class="eyebrow dark">HabitBit의 생각</p>
+                <h2 id="proof-title">한 해의 노력은 눈에 보여야 합니다.</h2>
+                <p>동기는 기억하기 어렵습니다. 하지만 매일의 흔적이 남으면 나의 발전을 더 쉽게 믿을 수 있습니다.</p>
+            </div>
+            <div class="year-stage" aria-label="한 해의 노력은 눈에 보여야 합니다.">
+                <div class="year-grid" id="year-grid" aria-hidden="true"></div>
+                <div class="year-caption"><strong>365</strong><span>눈에 보이는 작은 선택들</span></div>
+            </div>
+        </section>
+
+        <section class="film" aria-labelledby="film-title">
+            <img class="film-media" src="../assets/screens/ko/02-habit-overview.png" alt="iPhone에서 시각적 습관 관리를 보여주는 HabitBit 앱" width="1320" height="2868" loading="lazy">
+            <div class="film-overlay" aria-hidden="true"></div>
+            <div class="film-copy section-shell reveal">
+                <p class="eyebrow">다시 돌아오도록 설계했습니다.</p>
+                <h2 id="film-title">오늘 한 번의 탭.<br>내일 완성되는 이야기.</h2>
+            </div>
+        </section>
+
+        <section class="experience" id="experience" aria-labelledby="experience-title">
+            <div class="section-shell experience-heading reveal">
+                <p class="eyebrow dark">하나의 습관. 세 가지 거리.</p>
+                <h2 id="experience-title">오늘은 가까이.<br>관점이 필요할 때는 멀리.</h2>
+            </div>
+            <div class="mode-explorer section-shell">
+                <div class="mode-copy reveal">
+                    <div class="mode-control" role="tablist" aria-label="하나의 습관. 세 가지 거리.">
+                        <button type="button" role="tab" aria-selected="true" data-mode="week">주간</button>
+                        <button type="button" role="tab" aria-selected="false" data-mode="year">연간</button>
+                        <button type="button" role="tab" aria-selected="false" data-mode="detail">기록</button>
+                    </div>
+                    <p class="mode-kicker" id="mode-kicker">이번 주</p>
+                    <h3 id="mode-title">다음 체크를 자연스럽게.</h3>
+                    <p id="mode-description">집중된 주간 보드는 오늘을 가까이 두면서도 만들어 가는 리듬을 놓치지 않게 합니다.</p>
+                </div>
+                <div class="device-stage reveal">
+                    <div class="device" aria-live="polite">
+                        <img id="mode-image" src="../assets/screens/ko/07-weekly-view.png" alt="iPhone에 표시된 HabitBit 주간 습관 그리드" width="1320" height="2868">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-stories" aria-label="기능">
+            <article class="story story-dark">
+                <div class="story-media reveal"><div class="device device-small"><img src="../assets/screens/ko/05-statistics.png" alt="무엇이 다시 돌아오게 하는지 알아보세요." loading="lazy" width="1320" height="2868"></div></div>
+                <div class="story-copy reveal">
+                    <p class="eyebrow">압박이 아닌 패턴</p>
+                    <h2>무엇이 다시 돌아오게 하는지 알아보세요.</h2>
+                    <p>루틴을 복잡한 표로 만들지 않고도 연속 기록, 달성률, 장기 패턴을 확인할 수 있습니다.</p>
+                    <ul><li>현재 및 최고 연속 기록</li><li>달성 추세와 분포</li><li>주간·월간·연간 흐름</li></ul>
+                </div>
+            </article>
+            <article class="story story-light story-reverse">
+                <div class="story-media reveal"><div class="device device-small"><img src="../assets/screens/ko/04-pomodoro-focus.png" alt="습관이 실제로 일어날 시간을 만드세요." loading="lazy" width="1320" height="2868"></div></div>
+                <div class="story-copy reveal">
+                    <p class="eyebrow dark">의도에서 집중으로</p>
+                    <h2>습관이 실제로 일어날 시간을 만드세요.</h2>
+                    <p>체크 한 번보다 더 많은 집중이 필요한 습관에는 내장 타이머를 사용하세요. 시간을 정하고 시작한 뒤, 끝나면 보드로 돌아오면 됩니다.</p>
+                </div>
+            </article>
+            <article class="story story-dark">
+                <div class="story-media reveal"><div class="device device-small"><img src="../assets/screens/ko/03-home-screen-widgets.png" alt="습관을 앱 안에 숨겨둘 필요는 없습니다." loading="lazy" width="1320" height="2868"></div></div>
+                <div class="story-copy reveal">
+                    <p class="eyebrow">필요한 순간에 보이도록</p>
+                    <h2>습관을 앱 안에 숨겨둘 필요는 없습니다.</h2>
+                    <p>홈 화면과 잠금 화면 위젯이 다음 행동을 항상 보이게 합니다. 습관에 맞는 요일과 시간에 알림도 설정할 수 있습니다.</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="how-it-works" id="how-it-works" aria-labelledby="how-title">
+            <div class="section-shell how-heading reveal">
+                <p class="eyebrow dark">꾸준함을 위한 시각적 시스템</p>
+                <h2 id="how-title">HabitBit 사용 방법.</h2>
+                <p>HabitBit은 iPhone용 심플한 데일리 습관 트래커이자 루틴 플래너입니다. 한 번의 체크를 선명한 주간·월간·연간 그리드로 바꿔, 일상을 복잡하게 만들지 않고 연속 기록과 목표를 관리할 수 있습니다.</p>
+            </div>
+            <div class="section-shell how-steps">
+                <article class="reveal"><span>01</span><h3>습관 만들기</h3><p>만들고 싶은 루틴마다 이름, 아이콘, 색상, 일정과 선택 알림을 설정하세요.</p></article>
+                <article class="reveal"><span>02</span><h3>매일 체크하기</h3><p>한 번의 탭으로 습관을 완료하세요. 모든 달성이 시각적 기록 속 하나의 칸이 됩니다.</p></article>
+                <article class="reveal"><span>03</span><h3>패턴 확인하기</h3><p>주간, 월간, 연간 보기를 오가며 연속 기록, 놓친 날과 장기적인 꾸준함을 이해하세요.</p></article>
+            </div>
+        </section>
+
+        <section class="privacy" id="privacy" aria-labelledby="privacy-title">
+            <div class="section-shell privacy-layout">
+                <div class="privacy-copy reveal"><p class="eyebrow dark">기본부터 비공개</p><h2 id="privacy-title">습관은 개인적인 기록입니다.<br>그대로 지킬 수 있습니다.</h2></div>
+                <div class="privacy-details reveal">
+                    <p>HabitBit은 계정을 요구하지 않습니다. 습관 이름, 메모와 완료 기록은 기기에 로컬로 저장됩니다.</p>
+                    <dl><div><dt>계정</dt><dd>필요 없음</dd></div><div><dt>습관 기록</dt><dd>기기에 저장</dd></div><div><dt>사용 분석</dt><dd>현재 버전에서 비활성화</dd></div></dl>
+                    <a class="text-link" href="../privacy.html">전체 개인정보 처리방침 보기 <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="questions" id="questions" aria-labelledby="questions-title">
+            <div class="section-shell questions-layout">
+                <div class="questions-heading reveal"><p class="eyebrow dark">알아두면 좋은 점</p><h2 id="questions-title">첫 체크 전에 궁금한 것들.</h2></div>
+                <div class="faq reveal">
+                    <details><summary>HabitBit은 어떤 앱인가요?</summary><p>HabitBit은 iPhone용 심플한 시각적 습관 트래커이자 루틴 플래너입니다. 매일의 체크가 주간·월간·연간 그리드로 쌓여 루틴, 연속 기록과 장기 진행 상황을 쉽게 보여줍니다.</p></details>
+                    <details><summary>계정이 필요한가요?</summary><p>아니요. 계정을 만들지 않고 바로 습관 관리를 시작할 수 있습니다. 습관 기록은 기기에 로컬로 저장됩니다.</p></details>
+                    <details><summary>무엇을 기록할 수 있나요?</summary><p>운동, 독서, 물 마시기, 공부, 명상 또는 반복하는 어떤 행동이든 데일리 습관, 연속 기록, 목표와 루틴으로 관리할 수 있습니다. 습관마다 아이콘, 색상, 일정과 알림을 따로 설정할 수 있습니다.</p></details>
+                    <details><summary>위젯, 알림, 집중 타이머가 있나요?</summary><p>네. HabitBit은 홈 화면과 잠금 화면 위젯, 예약 알림, 포모도로 방식의 집중 타이머를 제공합니다.</p></details>
+                    <details><summary>HabitBit은 무료인가요?</summary><p>HabitBit은 무료로 다운로드하고 사용할 수 있습니다. 선택 사항인 Pro 구매로 무제한 습관, 고급 통계, Pro 위젯, 파일 내보내기와 가져오기, 추가 테마 색상을 이용할 수 있습니다. 플랜과 현지 가격은 앱 안에 표시됩니다.</p></details>
+                </div>
+            </div>
+        </section>
+
+        <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+            <div class="section-shell reviews-heading reveal">
+                <div>
+                    <p class="eyebrow dark">초기 App Store 리뷰</p>
+                    <h2 id="reviews-title">오래가는 루틴을 위해 만들었습니다.</h2>
+                </div>
+                <a class="rating-summary" href="https://apps.apple.com/app/id6755720599" target="_blank" rel="noopener noreferrer" aria-label="오래가는 루틴을 위해 만들었습니다.">
+                    <strong>5.0</strong>
+                    <span class="rating-stars" aria-label="5 / 5">★★★★★</span>
+                    <small>App Store 평가 5개</small>
+                </a>
+            </div>
+            <div class="section-shell review-grid">
+                <article class="review-card reveal">
+                    <div class="review-stars" aria-label="5 / 5">★★★★★</div>
+                    <h3>유용해요!</h3>
+                    <blockquote>“매일의 루틴을 꾸준히 이어가는 데 도움이 됩니다. 좋아요.”</blockquote>
+                    <div class="review-meta"><strong>kajdjskakfjd</strong><span>확인된 App Store 리뷰</span></div>
+                </article>
+                <article class="review-card reveal">
+                    <div class="review-stars" aria-label="5 / 5">★★★★★</div>
+                    <h3>축하합니다</h3>
+                    <blockquote>“제 삶을 더 편하게 만들어 줄 앱이에요. 감사합니다.”</blockquote>
+                    <div class="review-meta"><strong>Virtualinho</strong><span>확인된 App Store 리뷰</span></div>
+                </article>
+                <article class="review-card reveal">
+                    <div class="review-stars" aria-label="5 / 5">★★★★★</div>
+                    <h3>멋져요!</h3>
+                    <blockquote>“처음부터 이런 결과가 나올 줄은 몰랐어요!”</blockquote>
+                    <div class="review-meta"><strong>anlglgr</strong><span>확인된 App Store 리뷰</span></div>
+                </article>
+            </div>
+            <p class="section-shell reviews-note">App Store에 게시된 확인된 리뷰입니다.</p>
+        </section>
+
+        <section class="final-cta" aria-labelledby="final-title">
+            <div class="final-grid" id="final-grid" aria-hidden="true"></div>
+            <div class="final-copy reveal">
+                <img src="../habitbit.png" alt="" width="78" height="78">
+                <h2 id="final-title">한 칸에서 시작하세요.</h2>
+                <p>나머지는 다시 돌아오는 만큼 채워집니다.</p>
+                <a class="app-store-button light" href="https://apps.apple.com/app/id6755720599" target="_blank" rel="noopener noreferrer" aria-label="앱 받기: HabitBit">
+                    <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.1 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/></svg>
+                    <span><small>App Store에서</small><strong>App Store</strong></span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <a class="brand footer-brand" href="#top"><img src="../habitbit.png" alt="" width="36" height="36"><span>HabitBit</span></a>
+            <div class="footer-links"><a href="../privacy.html">개인정보</a><a href="../tos.html">이용약관</a><a href="mailto:alpsudilbilir@gmail.com">지원</a></div>
+            <p>© <span id="current-year">2026</span> HabitBit. Alpsu Dilbilir 제작.</p>
+        </div>
+    </footer>
+    <script type="application/json" id="mode-translations">{"week":{"alt":"iPhone에 표시된 HabitBit 주간 습관 그리드","kicker":"이번 주","title":"다음 체크를 자연스럽게.","description":"집중된 주간 보드는 오늘을 가까이 두면서도 만들어 가는 리듬을 놓치지 않게 합니다."},"year":{"alt":"iPhone에 표시된 HabitBit 연간 습관 그리드","kicker":"올해","title":"꾸준함을 한눈에 보세요.","description":"연간 보기는 수백 번의 작은 선택을 지금까지의 발전이 보이는 하나의 기록으로 바꿉니다."},"detail":{"alt":"iPhone에 표시된 HabitBit 습관 기록","kicker":"습관 기록","title":"모든 칸에 담긴 이야기를 보세요.","description":"완료 기록을 살펴보고 메모를 다시 읽으며 하나의 습관이 시간에 따라 어떻게 자라는지 확인하세요."}}</script>
+    <script src="../app.js?v=4" defer></script>
+</body>
+</html>

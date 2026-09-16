@@ -1,809 +1,280 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-screen-base="assets/screens/">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HabitBit - Simple Habit Tracking</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>document.documentElement.classList.add('js');</script>
+    <title>HabitBit - Simple Visual Habit Tracker for iPhone</title>
+    <meta name="description" content="HabitBit is a simple visual habit tracker for iPhone. Build daily routines with progress grids, reminders, widgets, streaks and focus sessions.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0c0d0e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-itunes-app" content="app-id=6755720599">
+    <link rel="canonical" href="https://www.habitbit.app/">
+    <link rel="alternate" hreflang="en" href="https://www.habitbit.app/">
+    <link rel="alternate" hreflang="tr" href="https://www.habitbit.app/tr/">
+    <link rel="alternate" hreflang="de" href="https://www.habitbit.app/de/">
+    <link rel="alternate" hreflang="fr" href="https://www.habitbit.app/fr/">
+    <link rel="alternate" hreflang="es" href="https://www.habitbit.app/es/">
+    <link rel="alternate" hreflang="it" href="https://www.habitbit.app/it/">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.habitbit.app/pt-br/">
+    <link rel="alternate" hreflang="ja" href="https://www.habitbit.app/ja/">
+    <link rel="alternate" hreflang="ko" href="https://www.habitbit.app/ko/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://www.habitbit.app/zh-hans/">
+    <link rel="alternate" hreflang="x-default" href="https://www.habitbit.app/">
     <link rel="icon" type="image/png" href="habitbit.png">
     <link rel="apple-touch-icon" href="habitbit.png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #e0e0e0;
-            background: #121212;
-            overflow-x: hidden;
-        }
-        
-        /* Liquid Glass Text Effect */
-        .liquid-text {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.95) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 2px 10px rgba(255,255,255,0.1);
-            font-weight: 700;
-        }
-
-        .section-header {
-            text-align: left;
-            margin-bottom: 40px;
-        }
-
-        /* Header */
-        header {
-            background: #121212;
-            padding: 100px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        @media (min-width: 769px) {
-            header {
-                padding-left: 40px;
-            }
-        }
-        
-        /* Abstract Background Blobs */
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-            opacity: 0.4;
-        }
-        
-        .blob-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: #FF6B9D; }
-        .blob-2 { top: 40%; right: -10%; width: 400px; height: 400px; background: #4ECDC4; }
-        .blob-3 { bottom: -10%; left: 20%; width: 600px; height: 600px; background: #C77DFF; }
-        
-        @media (max-width: 768px) {
-            .blob {
-                display: none;
-            }
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 0px;
-            margin-bottom: 20px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-        }
-        
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .logo {
-            font-size: 3.5em;
-            letter-spacing: -2px;
-            display: inline-block;
-            margin-left: -11px;
-        }
-        
-        .tagline {
-            font-size: 2em;
-            margin-bottom: 30px;
-            font-weight: 300;
-            color: #ffffff;
-            opacity: 0.9;
-            max-width: 600px;
-            line-height: 1.4;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        
-        .description {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            color: #cccccc;
-            line-height: 1.6;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        
-        /* App Store Button */
-        .app-store-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .app-store-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .apple-icon {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-        
-        .btn-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-        
-        .btn-text-small { font-size: 0.8em; opacity: 0.8; }
-        .btn-text-large { font-size: 1.2em; font-weight: 600; }
-
-        /* Screenshots Section */
-        .screenshots {
-            padding: 60px 20px 80px;
-            background: #0f0f0f;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .phones-showcase {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            height: 620px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .phone {
-            position: absolute;
-            border-radius: 36px;
-            overflow: hidden;
-            border: 4px solid #2a2a2a;
-            background: #000;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .phone img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border-radius: 32px;
-        }
-
-        /* Back-left phone */
-        .phone-1 {
-            width: 240px;
-            height: 520px;
-            z-index: 1;
-            transform: translateX(-280px) rotate(-8deg);
-        }
-
-        /* Back-right phone */
-        .phone-2 {
-            width: 240px;
-            height: 520px;
-            z-index: 1;
-            transform: translateX(280px) rotate(8deg);
-        }
-
-        /* Center phone (front, largest) */
-        .phone-3 {
-            width: 280px;
-            height: 607px;
-            z-index: 5;
-            transform: translateY(-10px);
-        }
-
-        .phone:hover {
-            z-index: 10 !important;
-            transform: scale(1.05) !important;
-            box-shadow: 0 35px 100px rgba(0, 0, 0, 0.9);
-        }
-
-        /* Reflection effect */
-        .phones-showcase::after {
-            content: '';
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 120px;
-            background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        /* Secondary screenshots row */
-        .screenshots-secondary {
-            max-width: 900px;
-            margin: 60px auto 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .phone-small {
-            width: 140px;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 3px solid #2a2a2a;
-            background: #000;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            aspect-ratio: 9/19.5;
-        }
-
-        .phone-small img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border-radius: 21px;
-        }
-
-        .phone-small:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
-        }
-
-        @media (max-width: 900px) {
-            .phones-showcase {
-                height: 480px;
-            }
-
-            .phone-1 {
-                width: 180px;
-                height: 390px;
-                transform: translateX(-200px) rotate(-8deg);
-            }
-
-            .phone-2 {
-                width: 180px;
-                height: 390px;
-                transform: translateX(200px) rotate(8deg);
-            }
-
-            .phone-3 {
-                width: 220px;
-                height: 477px;
-            }
-
-            .phone-small {
-                width: 110px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .phones-showcase {
-                height: 420px;
-            }
-
-            .phone-1 {
-                width: 150px;
-                height: 325px;
-                transform: translateX(-150px) rotate(-8deg);
-            }
-
-            .phone-2 {
-                width: 150px;
-                height: 325px;
-                transform: translateX(150px) rotate(8deg);
-            }
-
-            .phone-3 {
-                width: 190px;
-                height: 412px;
-            }
-
-            .phone {
-                border-radius: 28px;
-                border-width: 3px;
-            }
-
-            .phone img {
-                border-radius: 25px;
-            }
-
-            .screenshots-secondary {
-                gap: 12px;
-                margin-top: 40px;
-            }
-
-            .phone-small {
-                width: 90px;
-                border-radius: 18px;
-                border-width: 2px;
-            }
-
-            .phone-small img {
-                border-radius: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .phones-showcase {
-                height: 340px;
-            }
-
-            .phone-1 {
-                width: 120px;
-                height: 260px;
-                transform: translateX(-110px) rotate(-8deg);
-            }
-
-            .phone-2 {
-                width: 120px;
-                height: 260px;
-                transform: translateX(110px) rotate(8deg);
-            }
-
-            .phone-3 {
-                width: 155px;
-                height: 336px;
-            }
-
-            .phone {
-                border-radius: 22px;
-                border-width: 2px;
-            }
-
-            .phone img {
-                border-radius: 20px;
-            }
-
-            .phone-small {
-                width: 70px;
-                border-radius: 14px;
-            }
-
-            .phone-small img {
-                border-radius: 12px;
-            }
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 100px 20px;
-            background: #121212;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            padding: 40px;
-            border-radius: 24px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 24px;
-            padding: 10px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.1);
-        }
-
-        .feature-icon svg {
-            width: 100%;
-            height: 100%;
-            fill: white;
-        }
-        
-        .feature-title {
-            font-size: 1.4em;
-            margin-bottom: 16px;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .feature-description {
-            color: #aaaaaa;
-            line-height: 1.6;
-        }
-        
-        /* Footer & Legal Links */
-        footer {
-            background: #0a0a0a;
-            padding: 80px 20px 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .legal-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .legal-btn {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.2);
-            color: rgba(255,255,255,0.8);
-            padding: 10px 24px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .legal-btn:hover {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border-color: white;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background: #1a1a1a;
-            margin: 50px auto;
-            padding: 40px;
-            width: 90%;
-            max-width: 800px;
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.1);
-            position: relative;
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 10px;
-            opacity: 0.7;
-        }
-
-        .close-btn:hover { opacity: 1; }
-
-        .legal-text h2 { color: white; margin-bottom: 20px; }
-        .legal-text h3 { color: #e0e0e0; margin: 20px 0 10px; }
-        .legal-text p { color: #aaaaaa; margin-bottom: 15px; }
-        
-        .copyright {
-            color: #666;
-            font-size: 0.9em;
-        }
-
-        /* SVG Definitions */
-        .icon-color-1 { background: rgba(255, 107, 157, 0.2); color: #FF6B9D; }
-        .icon-color-2 { background: rgba(199, 125, 255, 0.2); color: #C77DFF; }
-        .icon-color-3 { background: rgba(78, 205, 196, 0.2); color: #4ECDC4; }
-        .icon-color-4 { background: rgba(149, 225, 211, 0.2); color: #95E1D3; }
-        .icon-color-5 { background: rgba(243, 129, 129, 0.2); color: #F38181; }
-        .icon-color-6 { background: rgba(170, 150, 218, 0.2); color: #AA96DA; }
-        .icon-color-7 { background: rgba(252, 186, 211, 0.2); color: #FCBAD3; }
-        .icon-color-8 { background: rgba(168, 230, 207, 0.2); color: #A8E6CF; }
-        
-        .feature-icon svg { fill: currentColor; }
-
-        @media (max-width: 768px) {
-            .logo { font-size: 2.6em; margin-left: -8px; }
-            .app-icon { width: 60px; height: 60px; border-radius: 15px; }
-            .logo-container { gap: 0px; margin-left: -15px; }
-            .tagline { font-size: 1.5em; }
-            .header-content, .section-header { text-align: center; }
-            .tagline, .description { margin-left: auto; margin-right: auto; }
-        }
-    </style>
+    <link rel="preload" href="assets/screens/02-habit-overview.png" as="image">
+    <link rel="stylesheet" href="styles.css?v=9">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HabitBit">
+    <meta property="og:title" content="HabitBit - Simple Visual Habit Tracker for iPhone">
+    <meta property="og:description" content="A simple daily habit tracker and routine planner with weekly, monthly and yearly progress grids.">
+    <meta property="og:url" content="https://www.habitbit.app/">
+    <meta property="og:image" content="https://www.habitbit.app/assets/screens/02-habit-overview.png">
+    <meta property="og:image:alt" content="HabitBit visual habit tracker showing habit grids on iPhone">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "HabitBit",
+      "url": "https://www.habitbit.app/",
+      "downloadUrl": "https://apps.apple.com/app/id6755720599",
+      "image": "https://www.habitbit.app/habitbit.png",
+      "operatingSystem": "iOS",
+      "applicationCategory": "ProductivityApplication",
+      "description": "HabitBit is a simple visual habit tracker and routine planner for iPhone with daily check-ins, weekly, monthly and yearly progress grids, reminders, widgets, streak statistics and a focus timer.",
+      "featureList": ["Weekly, monthly and yearly habit grids", "Habit reminders", "Home Screen and Lock Screen widgets", "Streak and completion statistics", "Pomodoro focus timer", "Local on-device habit storage"],
+      "screenshot": "https://www.habitbit.app/assets/screens/02-habit-overview.png",
+      "softwareRequirements": "Requires iOS on iPhone",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "bestRating": "5", "ratingCount": "5"},
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free to download with optional in-app purchases."},
+      "author": {"@type": "Person", "name": "Alpsu Dilbilir"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What is HabitBit?", "acceptedAnswer": {"@type": "Answer", "text": "HabitBit is a simple visual habit tracker and routine planner for iPhone. It turns daily habit check-ins into weekly, monthly and yearly grids so progress and streaks are easy to see."}},
+        {"@type": "Question", "name": "Do I need an account to use HabitBit?", "acceptedAnswer": {"@type": "Answer", "text": "No. HabitBit does not require an account, and habit records are stored locally on your device."}},
+        {"@type": "Question", "name": "Does HabitBit include widgets and reminders?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. HabitBit includes home screen and lock screen widgets, plus reminders that can be scheduled for selected days and times."}},
+        {"@type": "Question", "name": "Is HabitBit free?", "acceptedAnswer": {"@type": "Answer", "text": "HabitBit is free to download and use. Optional Pro purchases unlock unlimited habits, advanced statistics, Pro widgets, data export and import, and additional theme colors."}}
+      ]
+    }
+    </script>
 </head>
 <body>
-    <!-- Background Blobs -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-light" aria-hidden="true"></div>
+    <nav class="site-nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="HabitBit home">
+            <img src="habitbit.png" alt="" width="42" height="42">
+            <span>HabitBit</span>
+        </a>
+        <div class="nav-links">
+            <a href="#experience">Features</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#questions">FAQ</a>
+        </div>
+        <details class="language-menu">
+            <summary aria-label="Choose language">EN</summary>
+            <div class="language-options">
+                <a lang="en" href="https://www.habitbit.app/">English</a><a lang="tr" href="https://www.habitbit.app/tr/">Türkçe</a><a lang="de" href="https://www.habitbit.app/de/">Deutsch</a><a lang="fr" href="https://www.habitbit.app/fr/">Français</a><a lang="es" href="https://www.habitbit.app/es/">Español</a><a lang="it" href="https://www.habitbit.app/it/">Italiano</a><a lang="pt-BR" href="https://www.habitbit.app/pt-br/">Português</a><a lang="ja" href="https://www.habitbit.app/ja/">日本語</a><a lang="ko" href="https://www.habitbit.app/ko/">한국어</a><a lang="zh-Hans" href="https://www.habitbit.app/zh-hans/">简体中文</a>
+            </div>
+        </details>
+        <a class="nav-download" href="https://apps.apple.com/app/id6755720599" target="_blank" rel="noopener noreferrer">Get the app</a>
+    </nav>
 
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo-container">
-                <img src="habitbit.png" alt="HabitBit Icon" class="app-icon">
-                <div class="logo liquid-text">abitBit</div>
+    <main id="main">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="hero-grid" id="hero-grid" aria-hidden="true"></div>
+            <div class="hero-shade" aria-hidden="true"></div>
+            <div class="hero-copy reveal">
+                <p class="eyebrow">HabitBit for iPhone</p>
+                <h1 id="hero-title">The simple visual habit tracker for iPhone.</h1>
+                <p class="hero-lede">Build daily habits without the clutter. Check in with one tap, then see your routine, streaks and progress across a week, a month or an entire year.</p>
+                <a class="app-store-button" href="https://apps.apple.com/app/id6755720599" target="_blank" rel="noopener noreferrer" aria-label="Download HabitBit on the App Store">
+                    <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.1 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/></svg>
+                    <span><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+                <p class="hero-note">No account required. Your habit records stay on your device.</p>
             </div>
-            <div class="tagline">Simple, Lightweight Habit Tracker</div>
-            <div class="description">
-                Transform your daily routines into lasting habits. Every checkmark is a step forward, every streak a victory. Build the life you want, one habit at a time.
+            <a class="scroll-cue" href="#proof" aria-label="Explore HabitBit"><span>See the year</span><span aria-hidden="true">↓</span></a>
+        </section>
+
+        <section class="proof" id="proof" aria-labelledby="proof-title">
+            <div class="section-shell proof-copy reveal">
+                <p class="eyebrow dark">The idea behind HabitBit</p>
+                <h2 id="proof-title">A year should look like something.</h2>
+                <p>Motivation is difficult to remember. Progress is easier to trust when every day leaves a mark.</p>
             </div>
-        </div>
-    </header>
-    
-    <!-- Screenshots -->
-    <section class="screenshots">
-        <div class="phones-showcase">
-            <div class="phone phone-1">
-                <img src="ss-widgets2.png" alt="Widgets">
+            <div class="year-stage" aria-label="A 365-day habit grid filling over time">
+                <div class="year-grid" id="year-grid" aria-hidden="true"></div>
+                <div class="year-caption"><strong>365</strong><span>small decisions, made visible</span></div>
             </div>
-            <div class="phone phone-3">
-                <img src="ss-yearly.png" alt="Yearly Grid View">
+        </section>
+
+        <section class="film" aria-labelledby="film-title">
+            <video muted loop playsinline preload="none" poster="assets/screens/02-habit-overview.png" aria-label="HabitBit app preview showing visual habit tracking on iPhone">
+                <source data-src="assets/habitbit-app-preview-v2.mp4" type="video/mp4">
+            </video>
+            <div class="film-overlay" aria-hidden="true"></div>
+            <div class="film-copy section-shell reveal">
+                <p class="eyebrow">Designed around the return.</p>
+                <h2 id="film-title">One tap today.<br>The whole story tomorrow.</h2>
             </div>
-            <div class="phone phone-2">
-                <img src="ss-focus.png" alt="Focus Timer">
+        </section>
+
+        <section class="experience" id="experience" aria-labelledby="experience-title">
+            <div class="section-shell experience-heading reveal">
+                <p class="eyebrow dark">One habit. Three distances.</p>
+                <h2 id="experience-title">Stay close to today.<br>Zoom out when you need perspective.</h2>
             </div>
-        </div>
-        <div class="screenshots-secondary">
-            <div class="phone-small">
-                <img src="ss-detail.png" alt="Habit Detail">
-            </div>
-            <div class="phone-small">
-                <img src="ss-focus.png" alt="Focus Timer">
-            </div>
-            <div class="phone-small">
-                <img src="ss-achievement.png" alt="Achievements">
-            </div>
-            <div class="phone-small">
-                <img src="ss-stats1.png" alt="Statistics Charts">
-            </div>
-            <div class="phone-small">
-                <img src="ss-stats2.png" alt="Completion Rates">
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 60px;">
-            <a href="https://apps.apple.com/us/app/habit-tracker-habitbit/id6755720599" class="app-store-btn" target="_blank">
-                <svg class="apple-icon" viewBox="0 0 384 512">
-                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/>
-                </svg>
-                <div class="btn-text">
-                    <span class="btn-text-small">Download on the</span>
-                    <span class="btn-text-large">App Store</span>
+            <div class="mode-explorer section-shell">
+                <div class="mode-copy reveal">
+                    <div class="mode-control" role="tablist" aria-label="HabitBit views">
+                        <button type="button" role="tab" aria-selected="true" data-mode="week">Week</button>
+                        <button type="button" role="tab" aria-selected="false" data-mode="year">Year</button>
+                        <button type="button" role="tab" aria-selected="false" data-mode="detail">History</button>
+                    </div>
+                    <p class="mode-kicker" id="mode-kicker">This week</p>
+                    <h3 id="mode-title">Make the next checkmark obvious.</h3>
+                    <p id="mode-description">A focused weekly board keeps today close without hiding the rhythm you are building.</p>
                 </div>
-            </a>
-        </div>
-    </section>
-    
-    <!-- Features -->
-    <section class="features">
-        <div class="features-container">
-            <div class="section-header">
-                <h2 class="liquid-text" style="font-size: 2.5em;">Everything You Need</h2>
-            </div>
-            
-            <div class="features-grid">
-                <!-- Visual Grid Tracking -->
-                <div class="feature-card">
-                    <div class="feature-icon icon-color-1">
-                        <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5z"/></svg>
-                    </div>
-                    <div class="feature-title">Visual Grid Tracking</div>
-                    <div class="feature-description">
-                        Monitor your progress with intuitive tile-based grid charts. Track habits across weekly, monthly, and yearly views.
-                    </div>
-                </div>
-                
-                <!-- Customization -->
-                <div class="feature-card">
-                    <div class="feature-icon icon-color-2">
-                        <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                    </div>
-                    <div class="feature-title">Customization</div>
-                    <div class="feature-description">
-                        Personalize with custom icons and colors. Choose from hundreds of symbols to make each habit yours.
-                    </div>
-                </div>
-                
-                <!-- Widgets -->
-                <div class="feature-card">
-                    <div class="feature-icon icon-color-3">
-                        <svg viewBox="0 0 24 24"><path d="M13 13v8h8v-8h-8zM3 21h8v-8H3v8zM3 3v8h8V3H3zm13.66-1.31L11 7.34 16.66 13l5.66-5.66-5.66-5.65z"/></svg>
-                    </div>
-                    <div class="feature-title">Home Screen Widgets</div>
-                    <div class="feature-description">
-                        Toggle completions directly from your home screen. Keep habits front and center.
-                    </div>
-                </div>
-                
-                <!-- Calendar -->
-                <div class="feature-card">
-                    <div class="feature-icon icon-color-4">
-                        <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
-                    </div>
-                    <div class="feature-title">Calendar View</div>
-                    <div class="feature-description">
-                        Manage past completions easily. Simply tap a day to remove or add a completion.
-                    </div>
-                </div>
-                
-                <!-- Insights -->
-                <div class="feature-card">
-                    <div class="feature-icon icon-color-5">
-                        <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
-                    </div>
-                    <div class="feature-title">Detailed Insights</div>
-                    <div class="feature-description">
-                        View completion rates, streaks, and patterns. Understand your progress better with statistics.
-                    </div>
-                </div>
-                
-                <!-- Reminders -->
-                <div class="feature-card">
-                    <div class="feature-icon icon-color-6">
-                        <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
-                    </div>
-                    <div class="feature-title">Smart Reminders</div>
-                    <div class="feature-description">
-                        Set custom reminders for specific days and times. Never miss a habit again.
-                    </div>
-                </div>
-                
-                <!-- Archive -->
-                <div class="feature-card">
-                    <div class="feature-icon icon-color-7">
-                        <svg viewBox="0 0 24 24"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12.12l.81 1H5.12z"/></svg>
-                    </div>
-                    <div class="feature-title">Archive & Restore</div>
-                    <div class="feature-description">
-                        Archive habits you want to pause and restore them whenever you're ready.
-                    </div>
-                </div>
-                
-                <!-- Import & Export -->
-                <div class="feature-card">
-                    <div class="feature-icon icon-color-8">
-                        <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
-                    </div>
-                    <div class="feature-title">Import & Export Data</div>
-                    <div class="feature-description">
-                        Backup your habits and data by exporting to a file. Import your data anytime to restore your progress.
+                <div class="device-stage reveal">
+                    <div class="device" aria-live="polite">
+                        <img id="mode-image" src="assets/screens/07-weekly-view.png" alt="HabitBit weekly habit grid on iPhone" width="1320" height="2868">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
+        </section>
+
+        <section class="product-stories" aria-label="HabitBit features">
+            <article class="story story-dark">
+                <div class="story-media reveal"><div class="device device-small"><img src="assets/screens/05-statistics.png" alt="HabitBit statistics showing streaks and completion distribution" loading="lazy" width="1320" height="2868"></div></div>
+                <div class="story-copy reveal">
+                    <p class="eyebrow">Patterns, not pressure</p>
+                    <h2>Understand what helps you return.</h2>
+                    <p>See streaks, completion rates and longer-term patterns without turning your routine into a spreadsheet.</p>
+                    <ul><li>Current and best streaks</li><li>Completion trends and distribution</li><li>Weekly, monthly and yearly context</li></ul>
+                </div>
+            </article>
+            <article class="story story-light story-reverse">
+                <div class="story-media reveal"><div class="device device-small"><img src="assets/screens/04-pomodoro-focus.png" alt="HabitBit focus timer for a journaling habit" loading="lazy" width="1320" height="2868"></div></div>
+                <div class="story-copy reveal">
+                    <p class="eyebrow dark">From intention to focus</p>
+                    <h2>Give the habit a place to happen.</h2>
+                    <p>Use the built-in focus timer when a checkmark needs more than a tap. Set the duration, begin, and return to your board when the work is done.</p>
+                </div>
+            </article>
+            <article class="story story-dark">
+                <div class="story-media reveal"><div class="device device-small"><img src="assets/screens/03-home-screen-widgets.png" alt="HabitBit widgets on the iPhone home and lock screens" loading="lazy" width="1320" height="2868"></div></div>
+                <div class="story-copy reveal">
+                    <p class="eyebrow">Present at the right moment</p>
+                    <h2>Your habits do not have to hide inside an app.</h2>
+                    <p>Home screen and lock screen widgets keep the next action visible. Reminders can be scheduled for the days and times that fit the habit.</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="how-it-works" id="how-it-works" aria-labelledby="how-title">
+            <div class="section-shell how-heading reveal">
+                <p class="eyebrow dark">A visual system for consistency</p>
+                <h2 id="how-title">How HabitBit works.</h2>
+                <p>HabitBit is a simple daily habit tracker and routine planner for iPhone. It turns one-tap check-ins into clear weekly, monthly and yearly progress grids, helping you follow streaks and goals without adding complexity to your routine.</p>
+            </div>
+            <div class="section-shell how-steps">
+                <article class="reveal"><span>01</span><h3>Create your habits</h3><p>Choose a name, icon, colour, schedule and optional reminder for each routine you want to build.</p></article>
+                <article class="reveal"><span>02</span><h3>Check in each day</h3><p>Mark a habit complete with one tap. Every completion becomes a square in its visual history.</p></article>
+                <article class="reveal"><span>03</span><h3>See the pattern</h3><p>Switch between weekly, monthly and yearly views to understand streaks, missed days and long-term consistency.</p></article>
+            </div>
+        </section>
+
+        <section class="privacy" id="privacy" aria-labelledby="privacy-title">
+            <div class="section-shell privacy-layout">
+                <div class="privacy-copy reveal"><p class="eyebrow dark">Private by default</p><h2 id="privacy-title">Your habits are personal.<br>They can stay that way.</h2></div>
+                <div class="privacy-details reveal">
+                    <p>HabitBit does not require an account. Habit names, notes and completion records stay locally on your device.</p>
+                    <dl><div><dt>Account</dt><dd>Not required</dd></div><div><dt>Habit records</dt><dd>Stored on device</dd></div><div><dt>Usage analytics</dt><dd>Disabled in the current release</dd></div></dl>
+                    <a class="text-link" href="privacy.html">Read the full privacy policy <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="questions" id="questions" aria-labelledby="questions-title">
+            <div class="section-shell questions-layout">
+                <div class="questions-heading reveal"><p class="eyebrow dark">Good to know</p><h2 id="questions-title">Questions before your first checkmark.</h2></div>
+                <div class="faq reveal">
+                    <details><summary>What is HabitBit?</summary><p>HabitBit is a simple visual habit tracker and routine planner for iPhone. Daily check-ins build into weekly, monthly and yearly grids, making routines, streaks and long-term progress easier to see.</p></details>
+                    <details><summary>Do I need an account?</summary><p>No. You can start tracking without creating an account. Habit records are stored locally on your device.</p></details>
+                    <details><summary>What can I track?</summary><p>HabitBit works as a daily habit tracker, streak tracker, goal tracker and routine planner for exercise, reading, hydration, study, mindfulness or any repeated action. Each habit can have its own icon, color, schedule and reminder.</p></details>
+                    <details><summary>Does it include widgets, reminders and a focus timer?</summary><p>Yes. HabitBit includes home screen and lock screen widgets, scheduled reminders and a Pomodoro-style focus timer.</p></details>
+                    <details><summary>Is HabitBit free?</summary><p>HabitBit is free to download and use. Optional Pro purchases unlock unlimited habits, advanced statistics, Pro widgets, file export and import, and additional theme colors. Available plans and local prices are shown in the app.</p></details>
+                </div>
+            </div>
+        </section>
+
+        <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+            <div class="section-shell reviews-heading reveal">
+                <div>
+                    <p class="eyebrow dark">Early App Store feedback</p>
+                    <h2 id="reviews-title">Built for routines that last.</h2>
+                </div>
+                <a class="rating-summary" href="https://apps.apple.com/app/id6755720599" target="_blank" rel="noopener noreferrer" aria-label="View HabitBit ratings and reviews on the App Store">
+                    <strong>5.0</strong>
+                    <span class="rating-stars" aria-label="5 out of 5 stars">★★★★★</span>
+                    <small>5 ratings on the App Store</small>
+                </a>
+            </div>
+            <div class="section-shell review-grid">
+                <article class="review-card reveal">
+                    <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <h3>Useful!</h3>
+                    <blockquote>“It helps me keep up with my daily routines. Great.”</blockquote>
+                    <div class="review-meta"><strong>kajdjskakfjd</strong><span>Verified App Store review</span></div>
+                </article>
+                <article class="review-card reveal">
+                    <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <h3>Congratulations</h3>
+                    <blockquote>“An app that will make my life easier. Thank you.”</blockquote>
+                    <div class="review-meta"><strong>Virtualinho</strong><span>Verified App Store review</span></div>
+                </article>
+                <article class="review-card reveal">
+                    <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                    <h3>Spectacular!</h3>
+                    <blockquote>“I didn't expect those results at the very beginning!”</blockquote>
+                    <div class="review-meta"><strong>anlglgr</strong><span>Verified App Store review</span></div>
+                </article>
+            </div>
+            <p class="section-shell reviews-note">Verified reviews published on the App Store.</p>
+        </section>
+
+        <section class="final-cta" aria-labelledby="final-title">
+            <div class="final-grid" id="final-grid" aria-hidden="true"></div>
+            <div class="final-copy reveal">
+                <img src="habitbit.png" alt="" width="78" height="78">
+                <h2 id="final-title">Start with one square.</h2>
+                <p>The rest is what you return for.</p>
+                <a class="app-store-button light" href="https://apps.apple.com/app/id6755720599" target="_blank" rel="noopener noreferrer" aria-label="Download HabitBit on the App Store">
+                    <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.1 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/></svg>
+                    <span><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <div class="footer-content">
-            <div class="legal-buttons">
-                <a href="privacy.html" class="legal-btn">Privacy Policy</a>
-                <a href="tos.html" class="legal-btn">Terms of Use</a>
-                <button class="legal-btn" onclick="window.location.href='mailto:alpsudilbilir@gmail.com'">Contact Support</button>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 HabitBit. All rights reserved.</p>
-                <p style="margin-top: 10px; opacity: 0.6;">Made with ❤️ by Alpsu Dilbilir</p>
-            </div>
+        <div class="footer-inner">
+            <a class="brand footer-brand" href="#top"><img src="habitbit.png" alt="" width="36" height="36"><span>HabitBit</span></a>
+            <div class="footer-links"><a href="privacy.html">Privacy</a><a href="tos.html">Terms</a><a href="mailto:alpsudilbilir@gmail.com">Support</a></div>
+            <p>© <span id="current-year">2026</span> HabitBit. Made by Alpsu Dilbilir.</p>
         </div>
     </footer>
-
-    <!-- Privacy Modal -->
-    <div id="privacy-modal" class="modal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('privacy-modal')">×</button>
-            <div class="legal-text">
-                <h2 class="liquid-text">Privacy Policy</h2>
-                <p><strong>Last Updated: September 15, 2026</strong></p>
-                <p>Your habit records stay on your device. Firebase usage analytics is disabled in the HabitBit 2.0.0 release. Apple processes payments and RevenueCat validates purchases, restores access to paid features and provides purchase reporting. Habit names and notes are not sent to these services.</p>
-                <p>Read the <a href="privacy.html">full Privacy Policy</a> for the data categories, service providers, your choices and contact details.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Terms Modal -->
-    <div id="terms-modal" class="modal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('terms-modal')">×</button>
-            <div class="legal-text">
-                <h2 class="liquid-text">Terms of Use</h2>
-                <p><strong>Last Updated: 2025</strong></p>
-                
-                <h3>1. Acceptance of Terms</h3>
-                <p>By downloading and using HabitBit, you agree to these terms.</p>
-                
-                <h3>2. Usage</h3>
-                <p>HabitBit is a tool for personal habit tracking. We are not responsible for any outcomes resulting from the use of this app.</p>
-                
-                <h3>3. Data Privacy</h3>
-                <p>You acknowledge that HabitBit stores data locally on your device and does not backup data to the cloud. You are responsible for your own data.</p>
-                
-                <h3>4. Intellectual Property</h3>
-                <p>All content and design within the app are the property of the developer, except for user-generated content.</p>
-                
-                <h3>5. Termination</h3>
-                <p>We reserve the right to terminate or suspend access to the app immediately, without prior notice, for any reason.</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openModal(id) {
-            document.getElementById(id).style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-                document.body.style.overflow = 'auto';
-            }
-        }
-    </script>
+    <script src="app.js?v=4" defer></script>
 </body>
 </html>
