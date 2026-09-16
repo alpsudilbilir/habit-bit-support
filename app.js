@@ -1,5 +1,38 @@
 const palette = ['#82d1bb', '#e5b983', '#87b5dc', '#bdc58d', '#b7a6df', '#dda5b1'];
 
+const siteNav = document.querySelector('.site-nav');
+const languageMenu = siteNav?.querySelector('.language-menu');
+let previousScrollY = Math.max(0, window.scrollY);
+let navFramePending = false;
+
+function updateNavigation() {
+    if (!siteNav) return;
+    const currentScrollY = Math.max(0, window.scrollY);
+    const delta = currentScrollY - previousScrollY;
+    const isAtTop = currentScrollY < 28;
+
+    siteNav.classList.toggle('is-compact', !isAtTop);
+
+    if (isAtTop || delta < -4) {
+        siteNav.classList.remove('is-hidden');
+    } else if (currentScrollY > 120 && delta > 4) {
+        languageMenu?.removeAttribute('open');
+        siteNav.classList.add('is-hidden');
+    }
+
+    previousScrollY = currentScrollY;
+    navFramePending = false;
+}
+
+if (siteNav) {
+    updateNavigation();
+    window.addEventListener('scroll', () => {
+        if (navFramePending) return;
+        navFramePending = true;
+        window.requestAnimationFrame(updateNavigation);
+    }, { passive: true });
+}
+
 function makeAnimatedGrid(element, count, columns, className) {
     if (!element) return;
     const fragment = document.createDocumentFragment();

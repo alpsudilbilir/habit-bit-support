@@ -95,8 +95,8 @@ function buildLocale(locale) {
     .replace(/<video muted loop playsinline preload="none" poster="assets\/screens\/02-habit-overview\.png" aria-label="[^"]+">\s*<source data-src="assets\/habitbit-app-preview-v2\.mp4" type="video\/mp4">\s*<\/video>/, `<img class="film-media" src="../assets/screens/${localePath}/02-habit-overview.png" alt="${locale.filmAlt}" width="1320" height="2868" loading="lazy">`)
     .replaceAll('href="habitbit.png"', 'href="../habitbit.png"')
     .replaceAll('src="habitbit.png"', 'src="../habitbit.png"')
-    .replaceAll('href="styles.css?v=9"', 'href="../styles.css?v=9"')
-    .replaceAll('src="app.js?v=4"', 'src="../app.js?v=4"')
+    .replaceAll('href="styles.css?v=10"', 'href="../styles.css?v=10"')
+    .replaceAll('src="app.js?v=5"', 'src="../app.js?v=5"')
     .replaceAll('href="privacy.html"', 'href="../privacy.html"')
     .replaceAll('href="tos.html"', 'href="../tos.html"')
     .replace('alt="HabitBit weekly habit grid on iPhone"', `alt="${modes.week.alt}"`)
@@ -107,7 +107,7 @@ function buildLocale(locale) {
     .replace(/(href|src|poster)="assets\/screens\//g, `$1="../assets/screens/${localePath}/`);
 
   const modeJson = JSON.stringify(modes).replaceAll('<', '\\u003c');
-  html = html.replace('    <script src="../app.js?v=4" defer></script>', `    <script type="application/json" id="mode-translations">${modeJson}</script>\n    <script src="../app.js?v=4" defer></script>`);
+  html = html.replace('    <script src="../app.js?v=5" defer></script>', `    <script type="application/json" id="mode-translations">${modeJson}</script>\n    <script src="../app.js?v=5" defer></script>`);
 
   const faqSchema = {
     '@context': 'https://schema.org',
